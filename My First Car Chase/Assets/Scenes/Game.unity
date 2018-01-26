@@ -444,6 +444,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114095680975771964, guid: 25adcb897841a5e478d50c585b1d83fe,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25adcb897841a5e478d50c585b1d83fe, type: 2}
   m_IsPrefabParent: 0
@@ -1132,8 +1137,6 @@ MonoBehaviour:
   currentGear: 1
   optimalGear: 1
   health: 100
-  optimalGearColor: {r: 0, g: 1, b: 0, a: 1}
-  wrongGearColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1387297210
 GameObject:
   m_ObjectHideFlags: 0

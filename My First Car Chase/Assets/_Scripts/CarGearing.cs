@@ -18,8 +18,8 @@ public class CarGearing : MonoBehaviour
 
     private GameObject[] gearNumbers;
     private GameObject gearIndicator;
-    public Color optimalGearColor = new Color(0, 1, 0);
-    public Color wrongGearColor = new Color(1, 0, 0);
+    private Color optimalGearColor = new Color(0, 0.66f, 0, 1);
+    private Color wrongGearColor = new Color(0.84f, 0, 0, 1);
 
     // Use this for initialization
     void Start ()
