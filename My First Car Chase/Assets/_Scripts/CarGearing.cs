@@ -16,7 +16,8 @@ public class CarGearing : MonoBehaviour
 
     private Speed speed;
 
-    private GameObject[] gearIndicators;
+    private GameObject[] gearNumbers;
+    private GameObject gearIndicator;
     public Color optimalGearColor = new Color(0, 1, 0);
     public Color wrongGearColor = new Color(1, 0, 0);
 
@@ -24,8 +25,9 @@ public class CarGearing : MonoBehaviour
     void Start ()
     {
         speed = (Speed) GameObject.Find("GameControl").GetComponent(typeof(Speed));
-        gearIndicators = GameObject.FindGameObjectsWithTag("GearIndicator");
-        Array.Sort(gearIndicators, CompareGearNumber);
+        gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
+        Array.Sort(gearNumbers, CompareGearNumber);
+        gearIndicator = GameObject.FindGameObjectWithTag("GearIndicator");
 	}
 	
 	// Update is called once per frame
@@ -56,13 +58,15 @@ public class CarGearing : MonoBehaviour
 
     private void UpdateGearIndicators()
     {
-        for(int i = 0; i < gearIndicators.Length; i++)
+        for(int i = 0; i < gearNumbers.Length; i++)
         {
             if(i + 1 == optimalGear)
-                gearIndicators[i].GetComponent<Text>().color = optimalGearColor;
+                gearNumbers[i].GetComponent<Text>().color = optimalGearColor;
             else
-                gearIndicators[i].GetComponent<Text>().color = wrongGearColor;
+                gearNumbers[i].GetComponent<Text>().color = wrongGearColor;
         }
+        Vector3 targetPosition = gearNumbers[currentGear - 1].transform.position;
+        gearIndicator.transform.position = new Vector3(targetPosition.x + 2, targetPosition.y + 12, targetPosition.z);
     }
 
     IEnumerator DamageRoutine()

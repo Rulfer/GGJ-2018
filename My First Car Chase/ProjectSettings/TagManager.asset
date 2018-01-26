@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lane
   - GearIndicator
+  - GearNumber
   layers:
   - Default
   - TransparentFX
