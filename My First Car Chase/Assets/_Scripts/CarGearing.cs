@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarGearing : MonoBehaviour
 {
@@ -14,10 +16,16 @@ public class CarGearing : MonoBehaviour
 
     private Speed speed;
 
-	// Use this for initialization
-	void Start ()
+    private GameObject[] gearIndicators;
+    public Color optimalGearColor = new Color(0, 1, 0);
+    public Color wrongGearColor = new Color(1, 0, 0);
+
+    // Use this for initialization
+    void Start ()
     {
         speed = (Speed) GameObject.Find("GameControl").GetComponent(typeof(Speed));
+        gearIndicators = GameObject.FindGameObjectsWithTag("GearIndicator");
+        Array.Sort(gearIndicators, CompareGearNumber);
 	}
 	
 	// Update is called once per frame
@@ -33,15 +41,27 @@ public class CarGearing : MonoBehaviour
         else if (currentGear < minGear)
             currentGear = minGear;
 
-        if(currentGear == optimalGear)
+        if(currentGear == optimalGear && takingDamage)
         {
             takingDamage = false;
             StopCoroutine(DamageRoutine());
         }
-        else if(currentGear != optimalGear)
+        else if(currentGear != optimalGear && !takingDamage)
         {
             takingDamage = true;
             StartCoroutine(DamageRoutine());
+        }
+        UpdateGearIndicators();
+    }
+
+    private void UpdateGearIndicators()
+    {
+        for(int i = 0; i < gearIndicators.Length; i++)
+        {
+            if(i + 1 == optimalGear)
+                gearIndicators[i].GetComponent<Text>().color = optimalGearColor;
+            else
+                gearIndicators[i].GetComponent<Text>().color = wrongGearColor;
         }
     }
 
@@ -70,5 +90,10 @@ public class CarGearing : MonoBehaviour
         }
         health -= damage;
         Debug.Log("TAKING DAMAGE. CURRENT HEALTH: " + health);
+    }
+
+    private int CompareGearNumber(GameObject first, GameObject second)
+    {
+        return int.Parse(first.GetComponent<Text>().text).CompareTo(int.Parse(second.GetComponent<Text>().text));
     }
 }
