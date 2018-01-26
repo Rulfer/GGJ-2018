@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,10 @@ public class CarMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if(lanes.Length == 0)
+        {
             lanes = GameObject.FindGameObjectsWithTag("Lane");
+            Array.Sort(lanes, CompareXPosition);
+        }
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
         currentLaneIndex = FindCenterLaneIndex();
@@ -30,9 +34,9 @@ public class CarMovement : MonoBehaviour {
 
         float axis = Input.GetAxis("Horizontal");
         if (axis < -0.1f)
-            newLane += 1;
-        else if (axis > 0.1f)
             newLane -= 1;
+        else if (axis > 0.1f)
+            newLane += 1;
 
         if (!moving && newLane != currentLaneIndex && -1 < newLane && newLane < lanes.Length)
         {
@@ -55,5 +59,10 @@ public class CarMovement : MonoBehaviour {
     private int FindCenterLaneIndex()
     {
         return (int) (Mathf.Ceil(((float)lanes.Length / 2.0f)) - 1.0f);
+    }
+    
+    private int CompareXPosition(GameObject first, GameObject second)
+    {
+        return first.transform.position.x.CompareTo(second.transform.position.x);
     }
 }
