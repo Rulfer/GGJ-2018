@@ -8,11 +8,17 @@ public class ItemSpawner : MonoBehaviour {
     public GameObject genericRoad;
     public Transform movementContiner;
     public List<GameObject> obstacles = new List<GameObject>();
+
+    private bool started = false;
+
     private void Start()
     {
-        //InvokeRepeating("SpawnGenericRoad", 0, timeBetweenSpawns);
-
         StartCoroutine(SpawnGenericRoad());
+    }
+
+    private void Update()
+    {
+        
     }
 
     private IEnumerator SpawnGenericRoad()
@@ -22,9 +28,11 @@ public class ItemSpawner : MonoBehaviour {
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
 
-        List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
-        SpawnObstacles(roadPoints);
-
+        if (started)
+        {
+            List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
+            SpawnObstacles(roadPoints);
+        }
         StartCoroutine(SpawnGenericRoad());
     }
 
