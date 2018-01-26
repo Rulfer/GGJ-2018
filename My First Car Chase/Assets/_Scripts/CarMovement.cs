@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarMovement : MonoBehaviour {
+{
 
     public GameObject player;
     public int currentLaneIndex;
@@ -12,7 +12,8 @@ public class CarMovement : MonoBehaviour {
     public float playerSpeed = 1.0f;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         if(lanes.Length == 0)
         {
             lanes = GameObject.FindGameObjectsWithTag("Lane");
