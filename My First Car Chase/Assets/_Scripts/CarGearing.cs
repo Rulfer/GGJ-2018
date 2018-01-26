@@ -18,7 +18,6 @@ public class CarGearing : MonoBehaviour
 	void Start ()
     {
         speed = (Speed) GameObject.Find("GameControl").GetComponent(typeof(Speed));
-        StartCoroutine(DamageRoutine());
 	}
 	
 	// Update is called once per frame
@@ -35,9 +34,15 @@ public class CarGearing : MonoBehaviour
             currentGear = minGear;
 
         if(currentGear == optimalGear)
+        {
             takingDamage = false;
+            StopCoroutine(DamageRoutine());
+        }
         else if(currentGear != optimalGear)
+        {
             takingDamage = true;
+            StartCoroutine(DamageRoutine());
+        }
     }
 
     IEnumerator DamageRoutine()
