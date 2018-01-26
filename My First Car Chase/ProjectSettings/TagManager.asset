@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lane
+  - GearIndicator
+  - GearNumber
   layers:
   - Default
   - TransparentFX
