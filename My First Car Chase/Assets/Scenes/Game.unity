@@ -397,12 +397,12 @@ Prefab:
     - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 438.7
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -343.1
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
         type: 2}
@@ -443,21 +443,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.2158054
-      objectReference: {fileID: 0}
-    - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.2158054
-      objectReference: {fileID: 0}
-    - target: {fileID: 224381847217741868, guid: 25adcb897841a5e478d50c585b1d83fe,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.2158054
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25adcb897841a5e478d50c585b1d83fe, type: 2}
@@ -1130,7 +1115,7 @@ MonoBehaviour:
   currentLaneIndex: 0
   lanes: []
   moving: 0
-  playerSpeed: 1
+  movementSpeed: 7
 --- !u!114 &1377830656
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,7 +66,7 @@ public class CarGearing : MonoBehaviour
                 gearNumbers[i].GetComponent<Text>().color = wrongGearColor;
         }
         Vector3 targetPosition = gearNumbers[currentGear - 1].transform.position;
-        gearIndicator.transform.position = new Vector3(targetPosition.x + 2, targetPosition.y + 12, targetPosition.z);
+        gearIndicator.transform.position = new Vector3(targetPosition.x, targetPosition.y + 12, targetPosition.z);
     }
 
     IEnumerator DamageRoutine()
