@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 1094139038}
   - component: {fileID: 1094139042}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,6 +849,9 @@ MonoBehaviour:
   genericRoad: {fileID: 1795155960877300, guid: 726057074a239ce46876b16c2381a691,
     type: 2}
   movementContiner: {fileID: 821949622}
+  obstacles:
+  - {fileID: 1251653931595782, guid: 355b656b873e12447b4fc18735a5d536, type: 2}
+  - {fileID: 1473391035915054, guid: dd043bef1098acb428eb714ec97e979e, type: 2}
 --- !u!1 &1377830650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1055,10 @@ Prefab:
     - target: {fileID: 4475625610768480, guid: 726057074a239ce46876b16c2381a691, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795155960877300, guid: 726057074a239ce46876b16c2381a691, type: 2}
+      propertyPath: m_Name
+      value: Road
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 726057074a239ce46876b16c2381a691, type: 2}

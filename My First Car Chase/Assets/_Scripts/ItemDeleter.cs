@@ -6,7 +6,6 @@ public class ItemDeleter : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
         Destroy(other.gameObject);
     }
 }
