@@ -259,6 +259,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &701659642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 701659644}
+  - component: {fileID: 701659643}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &701659643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701659642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c97fd7f261ca9647be76145e9b3f682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedStep: 20
+  currentSpeed: 20
+  maxSpeed: 0
+--- !u!4 &701659644
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701659642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3582342, y: -2.9233885, z: 3.1481934}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &788753714
 Prefab:
   m_ObjectHideFlags: 0
@@ -313,6 +356,7 @@ GameObject:
   - component: {fileID: 1232922794}
   - component: {fileID: 1232922793}
   - component: {fileID: 1232922792}
+  - component: {fileID: 1232922797}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -403,3 +447,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1232922797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232922791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298aff7dbb170b941a9cd39f59f4df2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxGear: 5
+  minGear: 1
+  currentGear: 1
+  optimalGear: 1
+  health: 100
