@@ -30,14 +30,7 @@ public class CarMovement : MonoBehaviour {
         if (moving && player.transform.position == lanes[currentLaneIndex].transform.position)
             moving = false;
 
-        int newLane = currentLaneIndex;
-
-        float axis = Input.GetAxis("Horizontal");
-        if (axis < -0.1f)
-            newLane -= 1;
-        else if (axis > 0.1f)
-            newLane += 1;
-
+        int newLane = FindTargetLane();
         if (!moving && newLane != currentLaneIndex && -1 < newLane && newLane < lanes.Length)
         {
             currentLaneIndex = newLane;
@@ -45,6 +38,17 @@ public class CarMovement : MonoBehaviour {
         }
         if (moving && player.transform.position != lanes[currentLaneIndex].transform.position)
             MovePlayer();
+    }
+
+    private int FindTargetLane()
+    {
+        int newLane = currentLaneIndex;
+        float axis = Input.GetAxis("Horizontal");
+        if (axis < -0.1f)
+            newLane -= 1;
+        else if (axis > 0.1f)
+            newLane += 1;
+        return newLane;
     }
 
     private void MovePlayer()
