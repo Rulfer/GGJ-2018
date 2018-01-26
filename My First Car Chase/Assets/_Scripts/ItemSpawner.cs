@@ -10,13 +10,19 @@ public class ItemSpawner : MonoBehaviour {
 
     private void Start()
     {
-        InvokeRepeating("SpawnGenericRoad", 0, timeBetweenSpawns);
+        //InvokeRepeating("SpawnGenericRoad", 0, timeBetweenSpawns);
+
+        StartCoroutine(SpawnGenericRoad());
     }
 
-    private void SpawnGenericRoad()
+    private IEnumerator SpawnGenericRoad()
     {
+        yield return new WaitForSeconds(timeBetweenSpawns);
+
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
+
+        StartCoroutine(SpawnGenericRoad());
     }
 
     // Update is called once per frame
