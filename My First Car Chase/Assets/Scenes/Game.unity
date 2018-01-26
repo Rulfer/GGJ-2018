@@ -152,14 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4475625610768480, guid: 726057074a239ce46876b16c2381a691, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 34.57652
-      objectReference: {fileID: 0}
-    - target: {fileID: 4475625610768480, guid: 726057074a239ce46876b16c2381a691, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 34.57652
-      objectReference: {fileID: 0}
     - target: {fileID: 1795155960877300, guid: 726057074a239ce46876b16c2381a691, type: 2}
       propertyPath: m_Name
       value: Road_Test (1)
