@@ -17,7 +17,7 @@ public class CarGearing : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        speed = (Speed) GameObject.Find("GameManager").GetComponent(typeof(Speed));
+        speed = (Speed) GameObject.Find("GameControl").GetComponent(typeof(Speed));
         StartCoroutine(DamageRoutine());
 	}
 	
