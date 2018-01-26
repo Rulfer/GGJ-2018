@@ -22,12 +22,13 @@ public class Speed : MonoBehaviour
 	void Update ()
     {
         if (Input.GetKeyDown("3"))
-        {
             currentSpeed += speedStep;
-        }
         else if (Input.GetKeyDown("2"))
-        {
             currentSpeed -= speedStep;
-        }
+
+        if (currentSpeed < speedStep)
+            currentSpeed = speedStep;
+        else if (currentSpeed > maxSpeed)
+            currentSpeed = maxSpeed;
 	}
 }
