@@ -12,7 +12,8 @@ public class CarMovement : MonoBehaviour {
     public float playerSpeed = 1.0f;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         if(lanes.Length == 0)
         {
             lanes = GameObject.FindGameObjectsWithTag("Lane");
