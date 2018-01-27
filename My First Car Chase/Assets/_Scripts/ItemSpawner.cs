@@ -104,32 +104,46 @@ public class ItemSpawner : MonoBehaviour {
             for (int i = 0; i < signs.Count; i++)
                 signs[i].SetActive(true);
 
-            for(int j = 0; j < textboxes.Count; j++)
+            switch (newLimit)
+            {
+                case 1:
+                    modifierText += 10;
+                    break;
+                case 2:
+                    modifierText += 30;
+                    break;
+                case 3:
+                    modifierText += 50;
+                    break;
+                case 4:
+                    modifierText += 70;
+                    break;
+                case 5:
+                    modifierText += 90;
+                    break;
+            }
+
+            for (int j = 0; j < textboxes.Count; j++)
             {
                 switch (newLimit)
                 {
                     case 1:
-                        modifierText += 10;
                         textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "10";
                         break;
                     case 2:
-                        modifierText += 30;
                         textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "30";
                         break;
                     case 3:
-                        modifierText += 50;
                         textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "50";
                         break;
                     case 4:
-                        modifierText += 70;
                         textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "70";
                         break;
                     case 5:
-                        modifierText += 90;
                         textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "90";
                         break;
