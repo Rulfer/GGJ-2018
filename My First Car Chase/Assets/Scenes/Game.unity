@@ -1427,31 +1427,6 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
-        type: 2}
-      propertyPath: speed
-      value: 
-      objectReference: {fileID: 821949623}
-    - target: {fileID: 108326089759756038, guid: 679c78d73f549574cbaa1c7305df03c3,
-        type: 2}
-      propertyPath: m_SpotAngle
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 108346206671193984, guid: 679c78d73f549574cbaa1c7305df03c3,
-        type: 2}
-      propertyPath: m_SpotAngle
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 108326089759756038, guid: 679c78d73f549574cbaa1c7305df03c3,
-        type: 2}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 108346206671193984, guid: 679c78d73f549574cbaa1c7305df03c3,
-        type: 2}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
