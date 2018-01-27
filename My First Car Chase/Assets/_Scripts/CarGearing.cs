@@ -34,9 +34,9 @@ public class CarGearing : MonoBehaviour
 	void Update ()
     {
         //optimalGear = FindOptimalGear();
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
             currentGear += 1;
-        else if(Input.GetKeyDown("s"))
+        else if(Input.GetKeyDown("s") || Input.GetKeyDown("down"))
             currentGear -= 1;
         if (currentGear > maxGear)
             currentGear = maxGear;
