@@ -1039,8 +1039,8 @@ MonoBehaviour:
   movementContiner: {fileID: 821949622}
   obstacles:
   - {fileID: 1251653931595782, guid: 93296d0d88bd2fa4b8f489536036c044, type: 2}
-  - {fileID: 1473391035915054, guid: 1965f609440193c4697c8c594a9ef967, type: 2}
-  policeCar: {fileID: 1360929537321966, guid: 3e17cd3a6bcaa5b4493b331178b2bb78, type: 2}
+  - {fileID: 1157316222698188, guid: 6b5f2f5594de55745ae98933e635b1f2, type: 2}
+  policeCar: {fileID: 1157316222698188, guid: 6b5f2f5594de55745ae98933e635b1f2, type: 2}
 --- !u!1001 &1291640511
 Prefab:
   m_ObjectHideFlags: 0
