@@ -28,7 +28,8 @@ public class CarGearing : MonoBehaviour
         gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
         Array.Sort(gearNumbers, CompareGearNumber);
         gearIndicator = GameObject.FindGameObjectWithTag("GearIndicator");
-	}
+        StartCoroutine(DamageRoutine());
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -46,12 +47,10 @@ public class CarGearing : MonoBehaviour
         if(currentGear == speed.targetGear && takingDamage)
         {
             takingDamage = false;
-            StopCoroutine(DamageRoutine());
         }
         else if(currentGear != speed.targetGear && !takingDamage)
         {
             takingDamage = true;
-            StartCoroutine(DamageRoutine());
         }
         UpdateGearIndicators();
     }
@@ -85,6 +84,10 @@ public class CarGearing : MonoBehaviour
             {
                 TakeDamage();
             }
+            else
+            {
+                Heal();
+            }
         }
     }
 
@@ -101,6 +104,12 @@ public class CarGearing : MonoBehaviour
         }
         health -= damage;
         Debug.Log("TAKING DAMAGE. CURRENT HEALTH: " + health);
+    }
+
+    private void Heal()
+    {
+        if (health < 100)
+            health += 2;
     }
 
     private int CompareGearNumber(GameObject first, GameObject second)
