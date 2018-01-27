@@ -255,7 +255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 313745712}
   - component: {fileID: 313745711}
-  - component: {fileID: 313745713}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -289,20 +288,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &313745713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 313745710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4eb53bfb4a2b914f8db99070ea5222d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedStep: 20
-  currentSpeed: 0
-  maxSpeed: 0
 --- !u!1 &358434325
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,11 +700,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 821949621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdd2d453a5c46c46ac083753c4f0c75, type: 3}
+  m_Script: {fileID: 11500000, guid: d4eb53bfb4a2b914f8db99070ea5222d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  gearModifier: 0
+  speedStep: 0.3
+  baseSpeed: 0.5
+  currentSpeed: 0
+  maxSpeed: 0
 --- !u!1 &859433214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1170,7 @@ MonoBehaviour:
   currentLaneIndex: 0
   lanes: []
   moving: 0
-  movementSpeed: 7
+  movementSpeedFactor: 12
 --- !u!114 &1377830656
 MonoBehaviour:
   m_ObjectHideFlags: 0

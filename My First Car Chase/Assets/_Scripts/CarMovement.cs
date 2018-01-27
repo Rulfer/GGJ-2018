@@ -10,12 +10,16 @@ public class CarMovement : MonoBehaviour
     public int currentLaneIndex;
     public GameObject[] lanes;
     public bool moving = false;
-    public float movementSpeed = 10.0f;
+    public float movementSpeedFactor = 12.0f;
+    private float movementSpeed;
+
+    private Speed speed;
 
 	// Use this for initialization
 	void Start ()
     {
-        if(lanes.Length == 0)
+        speed = (Speed)GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
+        if (lanes.Length == 0)
         {
             lanes = GameObject.FindGameObjectsWithTag("Lane");
             Array.Sort(lanes, CompareXPosition);
@@ -29,6 +33,7 @@ public class CarMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        movementSpeed = speed.currentSpeed * movementSpeedFactor;
         if (moving && player.transform.position == lanes[currentLaneIndex].transform.position)
             moving = false;
 
