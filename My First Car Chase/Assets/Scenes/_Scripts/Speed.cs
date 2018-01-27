@@ -30,6 +30,10 @@ public class Speed : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(currentSpeed <= 0)
+        {
+            GameObject.FindObjectOfType<CarHitObstacle>().EndGame();
+        }
         if(targetSpeed == -1)
         {
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, Time.deltaTime * speedTransitionModifyer * 0.5f);
