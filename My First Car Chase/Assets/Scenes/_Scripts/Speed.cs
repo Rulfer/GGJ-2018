@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,24 +25,8 @@ public class Speed : MonoBehaviour
         targetSpeed = currentSpeed;
         targetGear = 1;
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
-        //maxSpeed = baseSpeed + speedStep * (carGearing.maxGear - 1);
         speedometer = GameObject.Find("Speedometer").GetComponent<Text>();
-        //speedometer.text = Mathf.Round((currentSpeedModifier + 0.5f) * 100).ToString() + " km/h";
     }
-
-    // Update is called once per frame
-    void Update ()
-    {
-        /*if (Input.GetKeyDown("3"))
-            currentSpeed += speedStep;
-        else if (Input.GetKeyDown("2"))
-            currentSpeed -= speedStep;
-            
-        if (currentSpeed < baseSpeed)
-            currentSpeed = baseSpeed;
-        else if (currentSpeed > maxSpeed)
-            currentSpeed = maxSpeed;*/
-	}
 
     private void FixedUpdate()
     {
@@ -53,7 +37,7 @@ public class Speed : MonoBehaviour
         else
             currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, Time.deltaTime * speedTransitionModifyer);
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
-        speedometer.text = Mathf.Round((currentSpeed + 0.5f) * 100).ToString() + " km/h";
+        speedometer.text = Mathf.Round(currentSpeed * 100).ToString() + " km/h";
     }
 
     //TODO: Update TargetSpeed, and accelerate towards that speed
@@ -71,7 +55,6 @@ public class Speed : MonoBehaviour
         {
             targetSpeed = baseSpeed + newSpeedModifier;
             currentSpeedModifier = newSpeedModifier;
-            //speedometer.text = Mathf.Round((newSpeedModifier + 0.5f) * 100).ToString() + " km/h";
         }
     }
 }
