@@ -16,7 +16,7 @@ public class Speed : MonoBehaviour
     {
         currentSpeed = speedStep;
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
-        maxSpeed = baseSpeed + speedStep * carGearing.maxGear;
+        maxSpeed = baseSpeed + speedStep * (carGearing.maxGear - 1);
 	}
 	
 	// Update is called once per frame
