@@ -4,34 +4,27 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour {
 
-    public float timeBetweenSpawns;
+    //public float timeBetweenSpawns;
+
     public GameObject genericRoad;
     public Transform movementContiner;
     public List<GameObject> obstacles = new List<GameObject>();
     public GameObject policeCar;
     private float timePlayed = 0f;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnGenericRoad());
-    }
+    public CarGearing gear;
 
     private void Update()
     {
         timePlayed += Time.deltaTime;
     }
 
-    private IEnumerator SpawnGenericRoad()
+    public void SpawnGenericRoad()
     {
-        yield return new WaitForSeconds(timeBetweenSpawns);
-
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
 
         List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
         SpawnObstacles(roadPoints);
-
-        StartCoroutine(SpawnGenericRoad());
     }
 
     private void SpawnObstacles(List<Transform> points)
@@ -92,5 +85,10 @@ public class ItemSpawner : MonoBehaviour {
         {
             return Random.Range(3, 6);
         }
+    }
+    
+    private void CheckForGearChange()
+    {
+            
     }
 }
