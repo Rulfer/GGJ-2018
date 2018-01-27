@@ -6,12 +6,27 @@ public class CarHitObstacle : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
         if(other.gameObject.transform.tag.Equals("obstacle"))
         {
+            Score score = GameObject.FindObjectOfType<Score>();
+
+            string savedScore = PlayerPrefs.GetString("points");
+            if(savedScore == "")
+            {
+                PlayerPrefs.SetString("points", score.scoreText.text);
+            }
+            else
+            {
+                int bestScore = int.Parse(savedScore);
+                int currentScore = int.Parse(score.scoreText.text);
+
+                if(currentScore > bestScore)
+                {
+                    PlayerPrefs.SetString("points", score.scoreText.text);
+                }
+            }
+
             SceneManager.LoadScene(0);
-            Debug.Log("U ded");
-            Debug.Log("Please restart the game");
         }
 
     }
