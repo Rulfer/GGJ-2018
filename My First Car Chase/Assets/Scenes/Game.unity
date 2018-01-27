@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 512
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
@@ -1102,7 +1102,7 @@ MonoBehaviour:
     type: 2}
   movementContiner: {fileID: 821949622}
   obstacles:
-  - {fileID: 1251653931595782, guid: 93296d0d88bd2fa4b8f489536036c044, type: 2}
+  - {fileID: 1982180957763140, guid: 240efaea1a37ef34ca32855d52bf1ea7, type: 2}
   - {fileID: 1157316222698188, guid: 6b5f2f5594de55745ae98933e635b1f2, type: 2}
   policeCar: {fileID: 1157316222698188, guid: 6b5f2f5594de55745ae98933e635b1f2, type: 2}
 --- !u!1001 &1291640511

@@ -147,7 +147,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: "\xDCber"
+    name: Ultra
     pixelLightCount: 12
     shadows: 2
     shadowResolution: 2

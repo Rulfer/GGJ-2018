@@ -235,9 +235,11 @@ GameObject:
   - component: {fileID: 4301599705393668}
   - component: {fileID: 33419341013438738}
   - component: {fileID: 23538214806019712}
+  - component: {fileID: 65765107346852704}
+  - component: {fileID: 54467317148855532}
   m_Layer: 0
   m_Name: polySurface1
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +453,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100014, guid: af17c2023fd0033418ffc43812b79726, type: 3}
+  - {fileID: 2100000, guid: 383474e29242d6e49a0544b20c0162c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -623,7 +625,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100012, guid: af17c2023fd0033418ffc43812b79726, type: 3}
+  - {fileID: 2100000, guid: 06794c56884341142ba97c97d7387f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -692,9 +694,9 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100002, guid: af17c2023fd0033418ffc43812b79726, type: 3}
+  - {fileID: 2100000, guid: 738b90586cb3f8f4e84fd0c391d5c5cd, type: 2}
   - {fileID: 2100004, guid: af17c2023fd0033418ffc43812b79726, type: 3}
-  - {fileID: 2100006, guid: af17c2023fd0033418ffc43812b79726, type: 3}
+  - {fileID: 2100000, guid: 383474e29242d6e49a0544b20c0162c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -853,6 +855,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124093817528652}
   m_Mesh: {fileID: 4300018, guid: af17c2023fd0033418ffc43812b79726, type: 3}
+--- !u!54 &54467317148855532
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980181178111782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65765107346852704
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980181178111782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03178702, y: 0.024149353, z: 0.09001931}
+  m_Center: {x: -0.0040284186, y: 0.0029844076, z: 0.0010069775}
 --- !u!95 &95747079713948124
 Animator:
   serializedVersion: 3
