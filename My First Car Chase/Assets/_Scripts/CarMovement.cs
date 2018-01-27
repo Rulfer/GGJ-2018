@@ -14,11 +14,13 @@ public class CarMovement : MonoBehaviour
     private float movementSpeed;
 
     private Speed speed;
+    private GameObject steeringWheel;
 
 	// Use this for initialization
 	void Start ()
     {
         speed = (Speed)GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
+        steeringWheel = GameObject.Find("Steering_Wheel");
         if (lanes.Length == 0)
         {
             lanes = GameObject.FindGameObjectsWithTag("Lane");
@@ -45,6 +47,17 @@ public class CarMovement : MonoBehaviour
         }
         if (moving && player.transform.position != lanes[currentLaneIndex].transform.position)
             MovePlayer();
+
+        int direction = CompareXPosition(player, lanes[currentLaneIndex]);
+        Vector3 rot = steeringWheel.transform.localEulerAngles;
+        Vector3 targetRot = new Vector3(0, 270, 85);
+        if (direction < 0)
+            targetRot.x = 270;
+        else if (direction > 0)
+            targetRot.x = 90;
+        else
+            targetRot.x = 0;
+        steeringWheel.transform.rotation = Quaternion.RotateTowards(Quaternion.Euler(rot), Quaternion.Euler(targetRot), 300 * Time.deltaTime);
     }
 
     private int FindTargetLane()
