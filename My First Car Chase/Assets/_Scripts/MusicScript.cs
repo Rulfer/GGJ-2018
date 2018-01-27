@@ -38,7 +38,6 @@ public class MusicScript : MonoBehaviour
             }
             if(!coroutineRunningGU)
             {
-                Debug.Log("you should start the coroutine now pls thank");
                 StartCoroutine(WaitUntilLoopedGU());
             }
 
@@ -66,7 +65,6 @@ public class MusicScript : MonoBehaviour
 
         sound[i + 1].mute = false;
         i += 1;
-        Debug.Log(i + " this is the thing to play");
         coroutineRunningGU = false;
     }
 
@@ -77,7 +75,6 @@ public class MusicScript : MonoBehaviour
 
         sound[i].mute = true;
         i -= 1;
-        Debug.Log(i + " this is the thing to play");
         coroutineRunningGD = false;
     }
 }
