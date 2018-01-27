@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSpawner : MonoBehaviour {
 
@@ -11,7 +12,6 @@ public class ItemSpawner : MonoBehaviour {
     public List<GameObject> obstacles = new List<GameObject>();
     public GameObject policeCar;
     private float timePlayed = 0f;
-    public CarGearing gear;
 
     private void Update()
     {
@@ -23,8 +23,9 @@ public class ItemSpawner : MonoBehaviour {
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
 
-        List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
-        SpawnObstacles(roadPoints);
+        MySpawnPoints roadPointContainer = newRoad.GetComponent<MySpawnPoints>();
+        SpawnObstacles(roadPointContainer.mySpawnPoints);
+        ChangeSpeedLimit(roadPointContainer.mySpeedSigns, roadPointContainer.mySpeedSignTexts, roadPointContainer.speedWall);
     }
 
     private void SpawnObstacles(List<Transform> points)
@@ -67,28 +68,68 @@ public class ItemSpawner : MonoBehaviour {
     {
         if(timePlayed < 20)
         {
+            //Always returns 1
             return Random.Range(1, 2);
         }
         else if(timePlayed < 40)
         {
+            //Returns 1 or 2
             return Random.Range(1, 3);
         }
         else if(timePlayed < 60)
         {
+            //Returns 1, 2 or 3
             return Random.Range(1, 4);
         }
         else if(timePlayed < 80)
         {
+            //Returns 2, 3 or 4
             return Random.Range(2, 5);
         }
         else
         {
+            //Returns 3, 4 or 5+
             return Random.Range(3, 6);
         }
     }
-    
-    private void CheckForGearChange()
+   
+    private void ChangeSpeedLimit(List<GameObject> signs, List<Text> textboxes, GameObject speedLimitChanger)
     {
-            
+        int chanceToChangeSpeedLimit = Random.Range(0, 101);
+
+        if(chanceToChangeSpeedLimit > 75)
+        {
+            int newLimit = Random.Range(1, 6);
+            for (int i = 0; i < signs.Count; i++)
+                signs[i].SetActive(true);
+
+            for(int j = 0; j < textboxes.Count; j++)
+            {
+                switch (newLimit)
+                {
+                    case 1:
+                        textboxes[j].text = "10";
+                        speedLimitChanger.transform.name = "10";
+                        return;
+                    case 2:
+                        textboxes[j].text = "30";
+                        speedLimitChanger.transform.name = "30";
+                        return;
+                    case 3:
+                        textboxes[j].text = "50";
+                        speedLimitChanger.transform.name = "50";
+                        return;
+                    case 4:
+                        textboxes[j].text = "70";
+                        speedLimitChanger.transform.name = "70";
+                        return;
+                    case 5:
+                        textboxes[j].text = "90";
+                        speedLimitChanger.transform.name = "90";
+                        return;
+                }
+            }
+
+        }
     }
 }
