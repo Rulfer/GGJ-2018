@@ -8,7 +8,7 @@ public class ChangeSpeedLimit : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag.Equals("player"))
+        if(other.transform.tag.Equals("Player"))
         {
             speed.currentSpeed = int.Parse(this.transform.name);
         }
