@@ -7,23 +7,24 @@ public class MusicScript : MonoBehaviour
     private bool coroutineRunningGU = false;
     private bool coroutineRunningGD = false;
     public AudioSource[] sound;
+    public AudioClip clip01;
+    
     int i = 0;
+    public float startTime;
+    public float midTime;
+    private float clipLenght;
 
 
     // Use this for initialization
     void Start ()
     {
-		
+        clipLenght = clip01.length;
+        midTime = clipLenght / 2;
 	}
 	
 	// Update is called once per frame
 	void Update ()
-    {/*
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            sound[0].time = 0.0f;
-        }*/
-
+    {
         if (sound[0].time <= 0.01)
         {
             Debug.Log(sound[0].time);
@@ -61,7 +62,7 @@ public class MusicScript : MonoBehaviour
     IEnumerator WaitUntilLoopedGU()
     {
         coroutineRunningGU = true;
-        yield return new WaitUntil(() => sound[0].time <= 0.01f);
+        yield return new WaitUntil(() => sound[0].time <= startTime || (sound[0].time >= midTime - startTime && sound[0].time <= midTime));
 
         sound[i + 1].mute = false;
         i += 1;
@@ -72,7 +73,7 @@ public class MusicScript : MonoBehaviour
     IEnumerator WaitUntilLoopedGD()
     {
         coroutineRunningGD = true;
-        yield return new WaitUntil(() => sound[0].time <= 0.01f);
+        yield return new WaitUntil(() => sound[0].time <= startTime || (sound[0].time >= midTime - startTime && sound[0].time <= midTime));
 
         sound[i].mute = true;
         i -= 1;
