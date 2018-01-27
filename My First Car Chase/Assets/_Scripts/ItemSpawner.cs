@@ -100,6 +100,7 @@ public class ItemSpawner : MonoBehaviour {
         if(chanceToChangeSpeedLimit > 75)
         {
             int newLimit = Random.Range(1, 6);
+            float modifierText = 50;
             for (int i = 0; i < signs.Count; i++)
                 signs[i].SetActive(true);
 
@@ -108,23 +109,28 @@ public class ItemSpawner : MonoBehaviour {
                 switch (newLimit)
                 {
                     case 1:
-                        textboxes[j].text = "10";
+                        modifierText += 10;
+                        textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "10";
                         break;
                     case 2:
-                        textboxes[j].text = "30";
+                        modifierText += 30;
+                        textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "30";
                         break;
                     case 3:
-                        textboxes[j].text = "50";
+                        modifierText += 50;
+                        textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "50";
                         break;
                     case 4:
-                        textboxes[j].text = "70";
+                        modifierText += 70;
+                        textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "70";
                         break;
                     case 5:
-                        textboxes[j].text = "90";
+                        modifierText += 90;
+                        textboxes[j].text = modifierText.ToString();
                         speedLimitChanger.transform.name = "90";
                         break;
                 }
