@@ -8,8 +8,8 @@ public class ItemSpawner : MonoBehaviour {
     public GameObject genericRoad;
     public Transform movementContiner;
     public List<GameObject> obstacles = new List<GameObject>();
-
-    private bool started = false;
+    public GameObject policeCar;
+    private float timePlayed = 0f;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class ItemSpawner : MonoBehaviour {
 
     private void Update()
     {
-        
+        timePlayed += Time.deltaTime;
     }
 
     private IEnumerator SpawnGenericRoad()
@@ -28,29 +28,69 @@ public class ItemSpawner : MonoBehaviour {
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
 
-        if (started)
-        {
-            List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
-            SpawnObstacles(roadPoints);
-        }
+        List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
+        SpawnObstacles(roadPoints);
+
         StartCoroutine(SpawnGenericRoad());
     }
 
     private void SpawnObstacles(List<Transform> points)
     {
-        int pointsToFill = Random.Range(2, 4);
-        
-        while(pointsToFill > 0)
+        int difficulty = GenerateDifficulty();
+        Debug.Log("Difficulty: " + difficulty);
+        if(difficulty == 5)
         {
-            pointsToFill--;
-            //int remainingPoints = points.Count;
-            int pointToFill = Random.Range(0, points.Count);
-            int objectToSpawn = Random.Range(0, obstacles.Count);
+            Debug.Log("Spawn police cars");
+            int openPoint = Random.Range(0, 5);
 
-            GameObject obstacle = Instantiate(obstacles[objectToSpawn], points[pointToFill].transform.position, points[pointToFill].transform.rotation);
-            obstacle.transform.parent = points[pointToFill].transform;
+            for(int i = 0; i < points.Count; i++)
+            {
+                if(i != openPoint)
+                {
+                    GameObject obstacle = Instantiate(policeCar, points[i].transform.position, points[i].transform.rotation);
+                    obstacle.transform.parent = points[i].transform;
+                }
+            }
+        }
+        else
+        {
+            //pointsToFill = Random.Range(0, difficulty);
 
-            points.RemoveAt(pointToFill);
+            while (difficulty > 0)
+            {
+                difficulty--;
+                int pointToFill = Random.Range(0, points.Count);
+                int objectToSpawn = Random.Range(0, obstacles.Count);
+
+                GameObject obstacle = Instantiate(obstacles[objectToSpawn], points[pointToFill].transform.position, points[pointToFill].transform.rotation);
+                obstacle.transform.parent = points[pointToFill].transform;
+
+                points.RemoveAt(pointToFill);
+            }
+        }
+    }
+
+    private int GenerateDifficulty()
+    {
+        if(timePlayed < 20)
+        {
+            return Random.Range(1, 2);
+        }
+        else if(timePlayed < 40)
+        {
+            return Random.Range(1, 3);
+        }
+        else if(timePlayed < 60)
+        {
+            return Random.Range(1, 4);
+        }
+        else if(timePlayed < 80)
+        {
+            return Random.Range(2, 5);
+        }
+        else
+        {
+            return Random.Range(3, 6);
         }
     }
 }

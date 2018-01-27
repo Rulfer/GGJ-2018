@@ -10,7 +10,7 @@ public class CarMovement : MonoBehaviour
     public int currentLaneIndex;
     public GameObject[] lanes;
     public bool moving = false;
-    public float playerSpeed = 1.0f;
+    public float movementSpeed = 10.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -57,7 +57,7 @@ public class CarMovement : MonoBehaviour
     {
         if (!moving)
             moving = true;
-        float step = playerSpeed * Time.deltaTime;
+        float step = movementSpeed * Time.deltaTime;
         player.transform.position = Vector3.MoveTowards(
             player.transform.position, lanes[currentLaneIndex].transform.position, step);
     }
