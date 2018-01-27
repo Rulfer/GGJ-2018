@@ -1654,6 +1654,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 20404925851663538, guid: b5f1c931a1fc0a24b88e171adc5dc406,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20404925851663538, guid: b5f1c931a1fc0a24b88e171adc5dc406,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5f1c931a1fc0a24b88e171adc5dc406, type: 2}
   m_IsPrefabParent: 0

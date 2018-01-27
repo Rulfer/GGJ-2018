@@ -29,16 +29,16 @@ public class LightScript : MonoBehaviour
         {
             if (switchColor == 0)
             {
-                lights[0].intensity = 1.5f;
-                lights[1].intensity = 0.5f;
+                lights[0].intensity = 30f;
+                lights[1].intensity = 15f;
                 switchLight = false;
                 
             }
 
             else if (switchColor == 1)
             {
-                lights[0].intensity = 0.5f;
-                lights[1].intensity = 1.5f;
+                lights[0].intensity = 15f;
+                lights[1].intensity = 30f;
                 Debug.Log("y u no do");
                 
                
