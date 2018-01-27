@@ -9,6 +9,7 @@ public class Speed : MonoBehaviour
     public float baseSpeed = 0.5f;
     public float currentSpeed;
     public float maxSpeed;
+    public float speedTransitionModifyer = 0.5f;
     public int targetGear = 1;
 
     private CarGearing carGearing;
@@ -43,12 +44,14 @@ public class Speed : MonoBehaviour
 
     private void FixedUpdate()
     {
+        currentSpeed = Mathf.MoveTowards(currentSpeed, maxSpeed, Time.deltaTime * speedTransitionModifyer);
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
     }
 
-    public void ChangeSpeed(float signSpeed)
+    //TODO: Update TargetSpeed, and accelerate towards that speed
+    public void ChangeSpeed(float newSpeed)
     { 
-        float newSpeedModifier = signSpeed / 100f;
+        float newSpeedModifier = newSpeed / 10f;
         if(newSpeedModifier != currentSpeedModifier)
         {
             currentSpeed = baseSpeed + newSpeedModifier;

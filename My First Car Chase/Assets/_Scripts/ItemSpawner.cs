@@ -25,7 +25,7 @@ public class ItemSpawner : MonoBehaviour {
 
         MySpawnPoints roadPointContainer = newRoad.GetComponent<MySpawnPoints>();
         SpawnObstacles(roadPointContainer.mySpawnPoints);
-        ChangeSpeedLimit(roadPointContainer.mySpeedSigns, roadPointContainer.mySpeedSignTexts, roadPointContainer.speedWall);
+        //ChangeSpeedLimit(roadPointContainer.mySpeedSigns, roadPointContainer.mySpeedSignTexts, roadPointContainer.speedWall);
     }
 
     private void SpawnObstacles(List<Transform> points)

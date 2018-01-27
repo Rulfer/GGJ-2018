@@ -21,18 +21,22 @@ public class CarGearing : MonoBehaviour
     private Color optimalGearColor = new Color(0, 0.66f, 0, 1);
     private Color wrongGearColor = new Color(0.84f, 0, 0, 1);
 
+    private bool gearing = false;
+    public GearPoint currentGearPoint = null;
+
     // Use this for initialization
     void Start ()
     {
+        currentGearPoint.GetComponent<RawImage>().color = Color.green;
         speed = (Speed) GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
         gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
         Array.Sort(gearNumbers, CompareGearNumber);
         gearIndicator = GameObject.FindGameObjectWithTag("GearIndicator");
         StartCoroutine(DamageRoutine());
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    /*void Update ()
     {
         //optimalGear = FindOptimalGear();
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
@@ -53,6 +57,31 @@ public class CarGearing : MonoBehaviour
             takingDamage = true;
         }
         UpdateGearIndicators();
+    }*/
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && !gearing)
+        {
+            gearing = true;
+        }
+        if(Input.GetKeyUp(KeyCode.Space) && gearing)
+        {
+            gearing = false;
+            
+            if(currentGearPoint.gameObject.transform.name.Equals("free"))
+            {
+                speed.ChangeSpeed(-1);
+            }
+            else
+            {
+                speed.ChangeSpeed(float.Parse(currentGearPoint.gameObject.transform.name));
+            }
+        }
+        if(gearing)
+        {
+            DoGearing();
+        }
     }
 
     /*private int FindOptimalGear()
@@ -61,6 +90,47 @@ public class CarGearing : MonoBehaviour
             return 1;
         return 1 + Mathf.RoundToInt((speed.currentSpeed - speed.baseSpeed) / speed.speedStep);
     }*/
+
+    private void DoGearing()
+    {
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if(currentGearPoint.pointDown != null)
+            {
+                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint = currentGearPoint.pointDown;
+                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (currentGearPoint.pointUp != null)
+            {
+                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint = currentGearPoint.pointUp;
+                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentGearPoint.pointLeft != null)
+            {
+                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint = currentGearPoint.pointLeft;
+                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (currentGearPoint.pointRight != null)
+            {
+                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint = currentGearPoint.pointRight;
+                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+            }
+        }
+    }
 
     private void UpdateGearIndicators()
     {
