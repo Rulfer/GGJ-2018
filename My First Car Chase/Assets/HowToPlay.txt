@@ -2,3 +2,14 @@ Goal:
 Drive as far as possible!
 If you hit a police car or a spike mat, you will lose.
 If your speed reaches 0, you lose.
+
+Gearing:
+Press and hold down the 'Space' key on the keyboard to enable gearing. Imagine you are pressing down the clutch in your car.
+While holding down the 'Space' key, use the arrow keys to move the gear stick. The green circle on the dashboard indicates what gear
+you are in. When you have moved to the selected gear, release the space key.
+Higher gear = higher speed.
+Higher gear = bonus points.
+
+While the space key is being pressed, or you put the car in neutral, no points are generated and the car will slow down.
+Upon reaching a speed of '0', you will lose the game.
+
