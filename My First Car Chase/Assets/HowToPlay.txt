@@ -1,0 +1,4 @@
+Goal:
+Drive as far as possible!
+If you hit a police car or a spike mat, you will lose.
+If your speed reaches 0, you lose.
