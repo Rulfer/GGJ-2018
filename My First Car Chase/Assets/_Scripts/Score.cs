@@ -10,6 +10,7 @@ public class Score : MonoBehaviour {
     public float timeUntilNewPoint;
 
     public bool generatePoints = true;
+    public int scoreMultiplier = 1;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class Score : MonoBehaviour {
 
         if (generatePoints)
         {
-            points++;
+            points += scoreMultiplier;
             scoreText.text = points.ToString();
         }
 

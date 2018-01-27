@@ -22,13 +22,16 @@ public class CarGearing : MonoBehaviour
     private Color optimalGearColor = new Color(0, 0.66f, 0, 1);
     private Color wrongGearColor = new Color(0.84f, 0, 0, 1);
 
+    public Color activeColor;
+    public Color inactiveColor;
+
     private bool gearing = false;
     public GearPoint currentGearPoint = null;
 
     // Use this for initialization
     void Start ()
     {
-        currentGearPoint.GetComponent<RawImage>().color = Color.green;
+        currentGearPoint.GetComponent<RawImage>().color = activeColor;
         speed = (Speed) GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
         score = GameObject.FindObjectOfType<Score>();
         gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
@@ -81,6 +84,26 @@ public class CarGearing : MonoBehaviour
             else
             {
                 score.generatePoints = true;
+                switch(int.Parse(currentGearPoint.gameObject.transform.name))
+                {
+                    case 10:
+                        score.scoreMultiplier = 1;
+                        break;
+                    case 30:
+                        score.scoreMultiplier = 2;
+                        break;
+                    case 50:
+                        score.scoreMultiplier = 3;
+                        break;
+                    case 70:
+                        score.scoreMultiplier = 4;
+                        break;
+                    case 90:
+                        score.scoreMultiplier = 5;
+                        break;
+
+                }
+                
                 speed.ChangeSpeed(float.Parse(currentGearPoint.gameObject.transform.name));
             }
         }
@@ -103,9 +126,9 @@ public class CarGearing : MonoBehaviour
         {
             if(currentGearPoint.pointDown != null)
             {
-                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint.GetComponent<RawImage>().color = inactiveColor;
                 currentGearPoint = currentGearPoint.pointDown;
-                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+                currentGearPoint.GetComponent<RawImage>().color = activeColor;
 
             }
         }
@@ -113,27 +136,27 @@ public class CarGearing : MonoBehaviour
         {
             if (currentGearPoint.pointUp != null)
             {
-                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint.GetComponent<RawImage>().color = inactiveColor;
                 currentGearPoint = currentGearPoint.pointUp;
-                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+                currentGearPoint.GetComponent<RawImage>().color = activeColor;
             }
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (currentGearPoint.pointLeft != null)
             {
-                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint.GetComponent<RawImage>().color = inactiveColor;
                 currentGearPoint = currentGearPoint.pointLeft;
-                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+                currentGearPoint.GetComponent<RawImage>().color = activeColor;
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (currentGearPoint.pointRight != null)
             {
-                currentGearPoint.GetComponent<RawImage>().color = Color.white;
+                currentGearPoint.GetComponent<RawImage>().color = inactiveColor;
                 currentGearPoint = currentGearPoint.pointRight;
-                currentGearPoint.GetComponent<RawImage>().color = Color.green;
+                currentGearPoint.GetComponent<RawImage>().color = activeColor;
             }
         }
     }
