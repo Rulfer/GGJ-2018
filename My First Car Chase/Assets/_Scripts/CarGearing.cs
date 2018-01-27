@@ -9,7 +9,7 @@ public class CarGearing : MonoBehaviour
     public int maxGear = 5;
     public int minGear = 1;
     public int currentGear = 1;
-    public int optimalGear = 1;
+    //public int optimalGear = 1;
 
     public int health = 100;
     private bool takingDamage = false;
@@ -33,7 +33,7 @@ public class CarGearing : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        optimalGear = FindOptimalGear();
+        //optimalGear = FindOptimalGear();
         if (Input.GetKeyDown("w"))
             currentGear += 1;
         else if(Input.GetKeyDown("s"))
@@ -43,12 +43,12 @@ public class CarGearing : MonoBehaviour
         else if (currentGear < minGear)
             currentGear = minGear;
 
-        if(currentGear == optimalGear && takingDamage)
+        if(currentGear == speed.targetGear && takingDamage)
         {
             takingDamage = false;
             StopCoroutine(DamageRoutine());
         }
-        else if(currentGear != optimalGear && !takingDamage)
+        else if(currentGear != speed.targetGear && !takingDamage)
         {
             takingDamage = true;
             StartCoroutine(DamageRoutine());
@@ -56,18 +56,18 @@ public class CarGearing : MonoBehaviour
         UpdateGearIndicators();
     }
 
-    private int FindOptimalGear()
+    /*private int FindOptimalGear()
     {
         if (speed.currentSpeed == speed.baseSpeed)
             return 1;
         return 1 + Mathf.RoundToInt((speed.currentSpeed - speed.baseSpeed) / speed.speedStep);
-    }
+    }*/
 
     private void UpdateGearIndicators()
     {
         for(int i = 0; i < gearNumbers.Length; i++)
         {
-            if(i + 1 == optimalGear)
+            if(i + 1 == speed.targetGear)
                 gearNumbers[i].GetComponent<Text>().color = optimalGearColor;
             else
                 gearNumbers[i].GetComponent<Text>().color = wrongGearColor;
@@ -91,13 +91,13 @@ public class CarGearing : MonoBehaviour
     private void TakeDamage()
     {
         int damage = 0;
-        if (currentGear > optimalGear)
+        if (currentGear > speed.targetGear)
         {
-            damage = (currentGear - optimalGear) * 2;
+            damage = (currentGear - speed.targetGear) * 2;
         }
-        else if (currentGear < optimalGear)
+        else if (currentGear < speed.targetGear)
         {
-            damage = (optimalGear - currentGear) * 2;
+            damage = (speed.targetGear - currentGear) * 2;
         }
         health -= damage;
         Debug.Log("TAKING DAMAGE. CURRENT HEALTH: " + health);
