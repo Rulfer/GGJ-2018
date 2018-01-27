@@ -12,7 +12,7 @@ public class MusicScript : MonoBehaviour
     int i = 0;
     public float startTime;
     public float midTime;
-    private float clipLenght;
+    public float clipLenght;
 
 
     // Use this for initialization

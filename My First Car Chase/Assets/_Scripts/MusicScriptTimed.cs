@@ -7,9 +7,9 @@ public class MusicScriptTimed : MonoBehaviour
     public AudioSource[] sound;
     public AudioClip clip01;
     private int i = 0;
-    private float clipLenght;
+    public float clipLenght;
     private float timer;
-    public int timeModifier;
+    public float timeModifier;
 
     // Use this for initialization
     void Start ()
@@ -28,7 +28,7 @@ public class MusicScriptTimed : MonoBehaviour
             i += 1;
             timer = 0f;
         }
-        Debug.Log(timer);
+        //Debug.Log(timer);
 		
 	}
 }
