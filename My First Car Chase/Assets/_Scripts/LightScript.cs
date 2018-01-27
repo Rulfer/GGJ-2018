@@ -18,7 +18,6 @@ public class LightScript : MonoBehaviour
 	void Start ()
     {
         changeLightInterval = clip01.length / 32;
-        Debug.Log("change light interval: " + changeLightInterval);
 	}
 	
 	// Update is called once per frame
@@ -29,19 +28,16 @@ public class LightScript : MonoBehaviour
         {
             if (switchColor == 0)
             {
-                lights[0].intensity = 10f;
-                lights[1].intensity = 5f;
+                lights[0].intensity = 5f;
+                lights[1].intensity = 2.5f;
                 switchLight = false;
                 
             }
 
             else if (switchColor == 1)
             {
-                lights[0].intensity = 5f;
-                lights[1].intensity = 10f;
-                Debug.Log("y u no do");
-                
-               
+                lights[0].intensity = 2.5f;
+                lights[1].intensity = 5f;         
             }
             timer = 0;
 
@@ -55,11 +51,6 @@ public class LightScript : MonoBehaviour
                 switchColor = 1;
             }
 
-
-            if (timer == 0)
-            {
-                Debug.Log ("Reset timer");
-            }
         }
 
         //Debug.Log("timer for light to change: " + timer);

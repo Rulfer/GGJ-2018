@@ -27,8 +27,6 @@ public class MusicScriptTimed : MonoBehaviour
             sound[i + 1].mute = false;
             i += 1;
             timer = 0f;
-        }
-        //Debug.Log(timer);
-		
+        }		
 	}
 }
