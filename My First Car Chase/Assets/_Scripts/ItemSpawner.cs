@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSpawner : MonoBehaviour {
 
@@ -11,7 +12,6 @@ public class ItemSpawner : MonoBehaviour {
     public List<GameObject> obstacles = new List<GameObject>();
     public GameObject policeCar;
     private float timePlayed = 0f;
-    public CarGearing gear;
 
     private void Update()
     {
@@ -23,8 +23,9 @@ public class ItemSpawner : MonoBehaviour {
         GameObject newRoad = Instantiate(genericRoad, this.transform.localPosition, this.transform.localRotation);
         newRoad.transform.parent = movementContiner;
 
-        List<Transform> roadPoints = newRoad.GetComponent<MySpawnPoints>().mySpawnPoints;
-        SpawnObstacles(roadPoints);
+        MySpawnPoints roadPointContainer = newRoad.GetComponent<MySpawnPoints>();
+        SpawnObstacles(roadPointContainer.mySpawnPoints);
+        ChangeSpeedLimit(roadPointContainer.mySpeedSigns, roadPointContainer.mySpeedSignTexts, roadPointContainer.speedWall);
     }
 
     private void SpawnObstacles(List<Transform> points)
@@ -92,8 +93,43 @@ public class ItemSpawner : MonoBehaviour {
         }
     }
    
-    private void ChangeSpeedLimit()
+    private void ChangeSpeedLimit(List<GameObject> signs, List<Text> textboxes, GameObject speedLimitChanger)
     {
+        int chanceToChangeSpeedLimit = Random.Range(0, 101);
 
+        if(chanceToChangeSpeedLimit > 75)
+        {
+            int newLimit = Random.Range(1, 6);
+            for (int i = 0; i < signs.Count; i++)
+                signs[i].SetActive(true);
+
+            for(int j = 0; j < textboxes.Count; j++)
+            {
+                switch (newLimit)
+                {
+                    case 1:
+                        textboxes[j].text = "10";
+                        speedLimitChanger.transform.name = "10";
+                        return;
+                    case 2:
+                        textboxes[j].text = "30";
+                        speedLimitChanger.transform.name = "30";
+                        return;
+                    case 3:
+                        textboxes[j].text = "50";
+                        speedLimitChanger.transform.name = "50";
+                        return;
+                    case 4:
+                        textboxes[j].text = "70";
+                        speedLimitChanger.transform.name = "70";
+                        return;
+                    case 5:
+                        textboxes[j].text = "90";
+                        speedLimitChanger.transform.name = "90";
+                        return;
+                }
+            }
+
+        }
     }
 }
