@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Speed : MonoBehaviour
 {
-    public int speedStep = 20;
-    public int currentSpeed;
-    public int maxSpeed;
+    public float speedStep = 0.3f;
+    public float baseSpeed = 0.5f;
+    public float currentSpeed;
+    public float maxSpeed;
 
     private CarGearing carGearing;
 
@@ -15,7 +16,7 @@ public class Speed : MonoBehaviour
     {
         currentSpeed = speedStep;
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
-        maxSpeed = speedStep * carGearing.maxGear;
+        maxSpeed = baseSpeed + speedStep * carGearing.maxGear;
 	}
 	
 	// Update is called once per frame
@@ -26,9 +27,14 @@ public class Speed : MonoBehaviour
         else if (Input.GetKeyDown("2"))
             currentSpeed -= speedStep;
 
-        if (currentSpeed < speedStep)
-            currentSpeed = speedStep;
+        if (currentSpeed < baseSpeed)
+            currentSpeed = baseSpeed;
         else if (currentSpeed > maxSpeed)
             currentSpeed = maxSpeed;
 	}
+
+    private void FixedUpdate()
+    {
+        this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
+    }
 }

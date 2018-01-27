@@ -24,7 +24,7 @@ public class CarGearing : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        speed = (Speed) GameObject.Find("GameControl").GetComponent(typeof(Speed));
+        speed = (Speed) GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
         gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
         Array.Sort(gearNumbers, CompareGearNumber);
         gearIndicator = GameObject.FindGameObjectWithTag("GearIndicator");
@@ -33,7 +33,7 @@ public class CarGearing : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        optimalGear = speed.currentSpeed / speed.speedStep;
+        optimalGear = FindOptimalGear();
         if (Input.GetKeyDown("w"))
             currentGear += 1;
         else if(Input.GetKeyDown("s"))
@@ -54,6 +54,13 @@ public class CarGearing : MonoBehaviour
             StartCoroutine(DamageRoutine());
         }
         UpdateGearIndicators();
+    }
+
+    private int FindOptimalGear()
+    {
+        if (speed.currentSpeed == speed.baseSpeed)
+            return 1;
+        return 1 + Mathf.RoundToInt((speed.currentSpeed - speed.baseSpeed) / speed.speedStep);
     }
 
     private void UpdateGearIndicators()
