@@ -67,28 +67,33 @@ public class ItemSpawner : MonoBehaviour {
     {
         if(timePlayed < 20)
         {
+            //Always returns 1
             return Random.Range(1, 2);
         }
         else if(timePlayed < 40)
         {
+            //Returns 1 or 2
             return Random.Range(1, 3);
         }
         else if(timePlayed < 60)
         {
+            //Returns 1, 2 or 3
             return Random.Range(1, 4);
         }
         else if(timePlayed < 80)
         {
+            //Returns 2, 3 or 4
             return Random.Range(2, 5);
         }
         else
         {
+            //Returns 3, 4 or 5+
             return Random.Range(3, 6);
         }
     }
-    
-    private void CheckForGearChange()
+   
+    private void ChangeSpeedLimit()
     {
-            
+
     }
 }
