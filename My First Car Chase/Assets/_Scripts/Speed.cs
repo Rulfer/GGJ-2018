@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Speed : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Speed : MonoBehaviour
     public float maxSpeed;
 
     private CarGearing carGearing;
+    private Text speedometer;
 
 	// Use this for initialization
 	void Start ()
@@ -17,6 +19,7 @@ public class Speed : MonoBehaviour
         currentSpeed = speedStep;
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
         maxSpeed = baseSpeed + speedStep * (carGearing.maxGear - 1);
+        speedometer = GameObject.Find("Speedometer").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +34,7 @@ public class Speed : MonoBehaviour
             currentSpeed = baseSpeed;
         else if (currentSpeed > maxSpeed)
             currentSpeed = maxSpeed;
+        speedometer.text = Mathf.Round(currentSpeed * 100).ToString() + " km/h";
 	}
 
     private void FixedUpdate()
