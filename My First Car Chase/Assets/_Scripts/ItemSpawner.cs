@@ -31,7 +31,7 @@ public class ItemSpawner : MonoBehaviour {
     private void SpawnObstacles(List<Transform> points)
     {
         int difficulty = GenerateDifficulty();
-        Debug.Log("Difficulty: " + difficulty);
+        //Debug.Log("Difficulty: " + difficulty);
         if(difficulty == 5)
         {
             Debug.Log("Spawn police cars");

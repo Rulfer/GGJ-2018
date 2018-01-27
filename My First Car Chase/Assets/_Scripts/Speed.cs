@@ -24,7 +24,7 @@ public class Speed : MonoBehaviour
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
         //maxSpeed = baseSpeed + speedStep * (carGearing.maxGear - 1);
         speedometer = GameObject.Find("Speedometer").GetComponent<Text>();
-        speedometer.text = Mathf.Round(currentSpeed * 100).ToString() + " km/h";
+        speedometer.text = Mathf.Round(currentSpeedModifier * 100).ToString() + " km/h";
     }
 
     // Update is called once per frame
@@ -41,10 +41,10 @@ public class Speed : MonoBehaviour
             currentSpeed = maxSpeed;*/
 	}
 
-   /* private void FixedUpdate()
+    private void FixedUpdate()
     {
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
-    }*/
+    }
 
     public void ChangeSpeed(float signSpeed)
     { 
@@ -53,7 +53,7 @@ public class Speed : MonoBehaviour
         {
             currentSpeed = baseSpeed + newSpeedModifier;
             currentSpeedModifier = newSpeedModifier;
-            speedometer.text = Mathf.Round(currentSpeed * 100).ToString() + " km/h";
+            speedometer.text = Mathf.Round(newSpeedModifier * 100).ToString() + " km/h";
 
             switch(newSpeedModifier.ToString())
             {
