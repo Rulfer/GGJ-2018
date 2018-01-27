@@ -63,10 +63,9 @@ public class CarMovement : MonoBehaviour
     private int FindTargetLane()
     {
         int newLane = currentLaneIndex;
-        float axis = Input.GetAxis("Horizontal");
-        if (axis < -0.1f)
+        if (Input.GetKeyDown("a"))
             newLane -= 1;
-        else if (axis > 0.1f)
+        else if (Input.GetKeyDown("d"))
             newLane += 1;
         return newLane;
     }
