@@ -9,6 +9,7 @@ public class Score : MonoBehaviour {
     private int points = 0;
     public float timeUntilNewPoint;
 
+    public bool generatePoints = true;
 
     private void Start()
     {
@@ -19,8 +20,11 @@ public class Score : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeUntilNewPoint);
 
-        points++;
-        scoreText.text = points.ToString();
+        if (generatePoints)
+        {
+            points++;
+            scoreText.text = points.ToString();
+        }
 
         StartCoroutine(PointGenerator());
     }

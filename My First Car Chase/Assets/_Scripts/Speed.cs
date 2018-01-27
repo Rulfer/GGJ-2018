@@ -8,8 +8,8 @@ public class Speed : MonoBehaviour
     //public float speedStep = 0.3f;
     public float baseSpeed = 0.5f;
     public float currentSpeed;
-    public float maxSpeed;
-    public float speedTransitionModifyer = 0.5f;
+    public float targetSpeed;
+    private float speedTransitionModifyer = 0.1f;
     public int targetGear = 1;
 
     private CarGearing carGearing;
@@ -17,10 +17,12 @@ public class Speed : MonoBehaviour
 
     private float currentSpeedModifier = 0.1f;
 
+
 	// Use this for initialization
 	void Start ()
     {
         currentSpeed = baseSpeed + currentSpeedModifier;
+        targetSpeed = currentSpeed;
         targetGear = 1;
         carGearing = (CarGearing) GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(CarGearing));
         //maxSpeed = baseSpeed + speedStep * (carGearing.maxGear - 1);
@@ -44,39 +46,31 @@ public class Speed : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentSpeed = Mathf.MoveTowards(currentSpeed, maxSpeed, Time.deltaTime * speedTransitionModifyer);
+        if(targetSpeed == -1)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, Time.deltaTime * speedTransitionModifyer * 0.5f);
+        }
+        else
+            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, Time.deltaTime * speedTransitionModifyer);
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
     }
 
     //TODO: Update TargetSpeed, and accelerate towards that speed
     public void ChangeSpeed(float newSpeed)
     { 
-        float newSpeedModifier = newSpeed / 10f;
+        if(newSpeed == -1)
+        {
+            //Gradually loose speed
+            currentSpeedModifier = -1;
+            targetSpeed = -1;
+            return;
+        }
+        float newSpeedModifier = newSpeed / 100f;
         if(newSpeedModifier != currentSpeedModifier)
         {
-            currentSpeed = baseSpeed + newSpeedModifier;
+            targetSpeed = baseSpeed + newSpeedModifier;
             currentSpeedModifier = newSpeedModifier;
             speedometer.text = Mathf.Round((newSpeedModifier + 0.5f) * 100).ToString() + " km/h";
-
-            switch(newSpeedModifier.ToString())
-            {
-                case "0.1":
-                    targetGear = 1;
-                    return;
-                case "0.3":
-                    targetGear = 2;
-                    return;
-                case "0.5":
-                    targetGear = 3;
-                    return;
-                case "0.7":
-                    targetGear = 4;
-                    return;
-                case "0.9":
-                    targetGear = 5;
-                    return;
-
-            }
         }
     }
 }

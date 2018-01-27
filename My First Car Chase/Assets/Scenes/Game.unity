@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 462311292}
   - component: {fileID: 462311294}
   m_Layer: 5
-  m_Name: 2
+  m_Name: 30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 482098640}
   - component: {fileID: 482098642}
   m_Layer: 5
-  m_Name: 4
+  m_Name: 70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,7 +921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 0.5
   currentSpeed: 0
-  maxSpeed: 0
+  targetSpeed: 0
+  speedTransitionModifyer: 0.5
   targetGear: 1
 --- !u!1 &859433214
 GameObject:
@@ -2065,7 +2066,7 @@ GameObject:
   - component: {fileID: 1532694005}
   - component: {fileID: 1532694007}
   m_Layer: 5
-  m_Name: 1
+  m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2148,7 +2149,7 @@ GameObject:
   - component: {fileID: 1616497763}
   - component: {fileID: 1616497765}
   m_Layer: 5
-  m_Name: 3
+  m_Name: 50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2397,7 +2398,7 @@ GameObject:
   - component: {fileID: 1928412085}
   - component: {fileID: 1928412087}
   m_Layer: 5
-  m_Name: 5
+  m_Name: 90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

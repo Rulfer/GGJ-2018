@@ -15,6 +15,7 @@ public class CarGearing : MonoBehaviour
     private bool takingDamage = false;
 
     private Speed speed;
+    private Score score;
 
     private GameObject[] gearNumbers;
     private GameObject gearIndicator;
@@ -29,6 +30,7 @@ public class CarGearing : MonoBehaviour
     {
         currentGearPoint.GetComponent<RawImage>().color = Color.green;
         speed = (Speed) GameObject.Find("ItemWorldMover").GetComponent(typeof(Speed));
+        score = GameObject.FindObjectOfType<Score>();
         gearNumbers = GameObject.FindGameObjectsWithTag("GearNumber");
         Array.Sort(gearNumbers, CompareGearNumber);
         gearIndicator = GameObject.FindGameObjectWithTag("GearIndicator");
@@ -63,6 +65,8 @@ public class CarGearing : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !gearing)
         {
+            speed.ChangeSpeed(-1);
+            score.generatePoints = false;
             gearing = true;
         }
         if(Input.GetKeyUp(KeyCode.Space) && gearing)
@@ -71,10 +75,12 @@ public class CarGearing : MonoBehaviour
             
             if(currentGearPoint.gameObject.transform.name.Equals("free"))
             {
+                score.generatePoints = false;
                 speed.ChangeSpeed(-1);
             }
             else
             {
+                score.generatePoints = true;
                 speed.ChangeSpeed(float.Parse(currentGearPoint.gameObject.transform.name));
             }
         }
