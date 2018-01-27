@@ -6,8 +6,12 @@ public class CarHitObstacle : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(0);
-        Debug.Log("U ded");
-        Debug.Log("Please restart the game");
+        if(other.transform.tag.Equals("obstacle"))
+        {
+            SceneManager.LoadScene(0);
+            Debug.Log("U ded");
+            Debug.Log("Please restart the game");
+        }
+
     }
 }

@@ -110,23 +110,23 @@ public class ItemSpawner : MonoBehaviour {
                     case 1:
                         textboxes[j].text = "10";
                         speedLimitChanger.transform.name = "10";
-                        return;
+                        break;
                     case 2:
                         textboxes[j].text = "30";
                         speedLimitChanger.transform.name = "30";
-                        return;
+                        break;
                     case 3:
                         textboxes[j].text = "50";
                         speedLimitChanger.transform.name = "50";
-                        return;
+                        break;
                     case 4:
                         textboxes[j].text = "70";
                         speedLimitChanger.transform.name = "70";
-                        return;
+                        break;
                     case 5:
                         textboxes[j].text = "90";
                         speedLimitChanger.transform.name = "90";
-                        return;
+                        break;
                 }
             }
 

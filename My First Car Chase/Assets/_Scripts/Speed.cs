@@ -41,4 +41,11 @@ public class Speed : MonoBehaviour
     {
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z - currentSpeed);
     }
+
+    public void ChangeSpeed(float signSpeed)
+    {
+        //70 becomes .7
+        float newSpeedModifier = signSpeed * 0.1f;
+        
+    }
 }

@@ -156,6 +156,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -207,6 +212,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -559,6 +569,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -848,6 +863,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -1064,6 +1084,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -1351,6 +1376,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
@@ -1397,6 +1427,11 @@ Prefab:
       propertyPath: m_Name
       value: Road_Test (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114424478220200180, guid: 679c78d73f549574cbaa1c7305df03c3,
+        type: 2}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 821949623}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679c78d73f549574cbaa1c7305df03c3, type: 2}
   m_IsPrefabParent: 0
