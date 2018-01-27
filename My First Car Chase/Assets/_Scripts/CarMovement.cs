@@ -10,7 +10,7 @@ public class CarMovement : MonoBehaviour
     public int currentLaneIndex;
     public GameObject[] lanes;
     public bool moving = false;
-    public float movementSpeed = 7.0f;
+    public float movementSpeed = 10.0f;
 
 	// Use this for initialization
 	void Start ()
